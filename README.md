@@ -5,7 +5,7 @@ Project : List of Top Clothing Brands
    - It will also discuss how brands maintain quality standards during production.
    - On my website, there will be a signup and favourite toggle button to save it.
 
-Technologies Used:
+Technologies Used: 
 
    - Specify the technologies used to develop the website, such as HTML, CSS, JavaScript for front-end development, and frameworks like React or Angular.
    - Backend technologies such as Node.js for server-side development.
