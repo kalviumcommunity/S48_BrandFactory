@@ -3,8 +3,8 @@ const app = express();
 const port = process.env.PUBLIC_PORT || 3000;
 
 // define the ping route
-app.get('/ping',(req, res)=>{
-  res.send('pong');
+app.get('/ping', (req, res) => {
+  res.json({message: 'pong'});
 })
 
 if (require.main === module) {
