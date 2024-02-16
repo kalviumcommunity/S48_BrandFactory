@@ -13,4 +13,4 @@ Technologies Used:
    - Specify the technologies used to develop the website, such as HTML, CSS, JavaScript for front-end development, and frameworks like React or Angular.
    - Backend technologies such as Node.js for server-side development.
 
-https://brandfactories.onrender.com/ping
+Render Deployment Link - https://brandfactory-mhw5.onrender.com/ping
