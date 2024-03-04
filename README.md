@@ -14,3 +14,4 @@ Technologies Used:
    - Backend technologies such as Node.js for server-side development.
 
 Render Deployment Link - https://brandfactory-mhw5.onrender.com/ping
+Front End Deployment Link - https://abcde229.brandfactory.pages.dev/
