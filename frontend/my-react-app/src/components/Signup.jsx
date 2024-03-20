@@ -10,6 +10,7 @@ export default function Form() {
     confirmPassword: "",
   });
   
+  
   const [submitted, setSubmit] = useState(false);
   const [check, setCheck] = useState(false);
 
