@@ -3,5 +3,3 @@ node_modules
 .env
 
 package-lock.json
-
-mongoURi = mongodb+srv://Hemanth31:jNyhfZQ4tS@cluster0.o5l8gk3.mongodb.net/BrandFactory?retryWrites=true&w=majority&appName=Cluster0
