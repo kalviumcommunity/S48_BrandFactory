@@ -1,7 +1,7 @@
 // App.js
 import React from 'react';
 import './App.css'; 
-// import Data from './Components/Data';
+import Navbar from './components/Navbar';
 import axios from 'axios'
 import { useState, useEffect } from 'react';
 
@@ -9,10 +9,14 @@ function App() {
   let  [data, setData] = useState()
 
   useEffect(()=>{
-    axios.get('http://localhost:8000/getBrands').then(res => setData(res.data)).catch(err => console.error(err))
-  })
+    axios.get('http://localhost:8000/getBrands')
+    .then(res => setData(res.data))
+    .catch(err => console.error(err))
+  },[])
+
   return (
-    <div>
+    <div className='app'>
+       <Navbar />
       <h1 className='welcome'>Welcome to BrandFactory</h1>
       {/* <Data /> */}
       <div>{data && data.map((item)=>{
@@ -28,7 +32,8 @@ function App() {
             <h4>Web Link : {item.WebLink}</h4>
           </div>
         )
-      })}</div>
+      })}
+      </div>
     </div>
   );
 }

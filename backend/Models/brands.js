@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 const FactorySchema = new mongoose.Schema({
-    id: Number,
     BrandName: String,
     Description: String,
     History: String,
