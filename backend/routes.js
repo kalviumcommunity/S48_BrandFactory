@@ -3,16 +3,16 @@ const router = express.Router();
 const factoryModel = require('./Models/brands.js');
 
 // Add brand
-router.post('/addBrand', async (req, res) => {
-    const newBrandData = req.body;
-    try {
-        await factoryModel.create(newBrandData);
-        res.json({ message: 'Brand added successfully' });
-    } catch (error) {
-        console.error('Error adding brand:', error);
-        res.status(500).json({ message: 'Internal server error' });
-    }
-});
+// router.post('/addBrand', async (req, res) => {
+//     const newBrandData = req.body;
+//     try {
+//         await factoryModel.create(newBrandData);
+//         res.json({ message: 'Brand added successfully' });
+//     } catch (error) {
+//         console.error('Error adding brand:', error);
+//         res.status(500).json({ message: 'Internal server error' });
+//     }
+// });
 
 // Update brand by ID
 router.put('/updateBrand/:id', async (req, res) => {
