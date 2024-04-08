@@ -3,13 +3,13 @@ const app = express();
 const port = 8000;
 const cors = require('cors');
 const routes = require('./routes');
-const factoryModel = require('./Models/brands.js');
+const {factoryModel,factoryValidationSchema} = require('./Models/brands.js');
 const mongoose = require('mongoose');
 
 require('dotenv').config();
 
 const uri = process.env.mongoURi;
-const userModel = require('./Models/users.js');
+const {userModel,userValidationSchema} = require('./Models/users.js');
 
 app.use(cors());
 app.use(express.json());
@@ -25,17 +25,19 @@ mongoose.connect(uri, {
 
 app.use('/', routes);
 
-// Add route for adding brand
+// Create a new Brand
 app.post('/addBrand', async (req, res) => {
-    const newBrandData = req.body;
     try {
-        await factoryModel.create(newBrandData);
-        res.json({ message: 'Brand added successfully' });
-    } catch (error) {
-        console.error('Error adding brand:', error);
-        res.status(500).json({ message: 'Internal server error' });
+      const validationResult = await factoryValidationSchema.validateAsync(req.body);
+      console.log(req.body.createdby)
+      const data = await factoryModel.create(validationResult);
+      res.json(data);
+    } catch (err) {
+      console.error(err);
+      res.status(400).json({ error: 'Validation Error' });
     }
-});
+  });
+  
 
 // Update brand by ID
 app.put('/updateBrand/:id', async (req, res) => {
@@ -68,12 +70,16 @@ app.get('/getBrands', (req, res) => {
         .catch(err => res.json(err))
 });
 
-app.post('/postUserData', (req, res) => {
-    let userData = req.body;
-    userModel.create(userData)
-        .then(UserModel => res.json(UserModel))
-        .catch(err => res.json(err))
-});
+app.post('/postUserData', async (req, res) => {
+    try{
+      const validationResult = await userValidationSchema.validateAsync(req.body);
+      const data = await userModel.create(validationResult);
+      res.json(data);
+    }catch(err){
+      console.error(err);
+      res.status(400).json({ error: 'Validation Error' });
+    }
+  });
 
 app.get('/getUserData', (req, res) => {
     userModel.find()
