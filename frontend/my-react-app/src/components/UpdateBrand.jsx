@@ -17,7 +17,6 @@ function UpdateBrand({ closeModal, brandId }) {
         console.error('Error fetching brand data:', error);
       }
     };
-
     fetchBrandData();
   }, [brandId]);
 

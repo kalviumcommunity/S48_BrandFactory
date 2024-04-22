@@ -27,10 +27,6 @@ function Navbar() {
             onClick={toggleModal} // Open modal on click
           />
           <img
-            src="https://cdn-icons-png.flaticon.com/512/1828/1828970.png"
-            className="icon"
-          />
-          <img
             src="https://cdn-icons-png.flaticon.com/512/1946/1946488.png"
             className="icon"
           />
