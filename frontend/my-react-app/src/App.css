@@ -2,8 +2,6 @@ body{
   background-color: #333;
 }
 
-
-
 h2 {
   color: #333;
 }
@@ -77,4 +75,20 @@ button:hover {
 
 .delete-btn:hover {
   background-color: #c82333; /* Darker red color on hover */
+}
+
+.logout{
+  display: flex;
+  justify-content: center;
+}
+
+#logout{
+  background-color : #6b6b6b;
+}
+
+#notify{
+  display: flex;
+  justify-content: center;
+  padding-top: 20vh;
+  font-size: 25px;
 }
