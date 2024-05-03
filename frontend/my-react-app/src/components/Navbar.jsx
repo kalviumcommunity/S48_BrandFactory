@@ -25,10 +25,6 @@ function Navbar() {
             onClick={toggleModal} 
           />
           <img
-            src="https://cdn-icons-png.flaticon.com/512/1946/1946488.png"
-            className="icon"
-          />
-          <img
             src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png"
             className="icon"
             onClick={toggleProfile}
