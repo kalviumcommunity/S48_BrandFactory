@@ -68,7 +68,7 @@ function App() {
             ))}
           </div>
           <div className='logout'>
-            <button id='logout' onClick={()=>{logout();Cookies.remove('username')}}>LOGOUT</button>
+            <button id='logout' onClick={()=>{logout();Cookies.remove('username');Cookies.remove('token')}}>LOGOUT</button>
           </div>
         </>
       ) : (

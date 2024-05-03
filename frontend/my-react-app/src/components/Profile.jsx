@@ -25,6 +25,7 @@ function Profile({ closeModal }) {
       if (isLogin) {
         login(); // Trigger login action if logging in
         Cookies.set('username', formData.Email); // Save username to cookies
+        Cookies.set('token', response.data.accesstoken); // Save username to cookies
       } else {
         // Optionally handle any actions needed right after registration
       }

@@ -7,6 +7,7 @@ const routes = require('./routes');
 const { factoryModel, factoryValidationSchema } = require('./Models/brands.js');
 const { userModel, userValidationSchema } = require('./Models/users.js');
 require('dotenv').config();
+const jwt = require('jsonwebtoken')
 
 const app = express();
 const port = 8000;
@@ -118,7 +119,9 @@ app.post('/login', async (req, res) => {
     const user = await userModel.findOne({ Email });
     if (user && await bcrypt.compare(Password, user.Password)) {
         req.session.userId = user._id;  // Set user session
-        res.json({ message: "Logged in successfully" });
+        const accesstoken = jwt.sign({Email},process.env.ACCESSTOKEN_SECRET)
+        res.cookie('token',accesstoken);
+        res.json({ message: "Logged in successfully" , accesstoken:accesstoken });
     } else {
         res.status(401).json({ message: "Invalid credentials" });
     }
