@@ -11,12 +11,10 @@ function Profile({ closeModal }) {
 
   const handleAddBrand = async () => {
     try {
-      // Send the form data to the specified API endpoint
       await axios.post('http://localhost:8000/addBrand', formData);
       alert('Brand added successfully!');
       closeModal();
 
-      // Fetch the updated brand list after adding
       const brandDataResponse = await axios.get('http://localhost:8000/getBrands');
       console.log('Brand data:', brandDataResponse.data);
     } catch (error) {
