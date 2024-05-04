@@ -1,3 +1,4 @@
+
 /* Modal.css */
 .modal-overlay {
     position: fixed;
@@ -46,7 +47,7 @@
   .modal button {
     margin-top: 10px;
     padding: 10px;
-    background-color: #222222;
+    background-color: #fe0202;
     color: white;
     border: none;
     border-radius: 3px;

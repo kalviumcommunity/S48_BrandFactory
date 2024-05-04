@@ -1,16 +1,15 @@
+
+// Navbar.js
 import React, { useState } from 'react';
-import './Navbar.css';
-import Modal from './AddItem.jsx'; 
-import Profile from './Profile.jsx';
+import './Navbar.css'; // Import CSS file for styling
+import Modal from './Profile.jsx'; // Import Modal component
+
 function Navbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isProfileopen, setIsProfileOpen] = useState(false);
 
+  // Function to toggle modal state
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
-  };
-  const toggleProfile = () => {
-    setIsProfileOpen(!isProfileopen);
   };
 
   return (
@@ -20,23 +19,18 @@ function Navbar() {
        
         <div className="icons">
           <img
-            src="https://cdn-icons-png.flaticon.com/512/992/992651.png"
-            className="icon"
-            onClick={toggleModal} 
-          />
-          <img
             src="https://cdn-icons-png.flaticon.com/512/1946/1946488.png"
             className="icon"
           />
           <img
             src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png"
             className="icon"
-            onClick={toggleProfile}
+            onClick={toggleModal} // Open modal on click
           />
         </div>
       </div>
+      {/* Render modal if isModalOpen is true */}
       {isModalOpen && <Modal closeModal={toggleModal} />}
-      {isProfileopen && <Profile closeModal={toggleProfile} />}
     </nav>
   );
 }
