@@ -8,7 +8,7 @@ function Profile({ closeModal }) {
   const [formData, setFormData] = useState({ UserName: '', Email: '', Password: '' });
   const [isLogin, setIsLogin] = useState(true);
   const [errors, setErrors] = useState({});
-  const { login } = useAuth(); 
+  const { login } = useAuth(); // Use login function from AuthContext
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

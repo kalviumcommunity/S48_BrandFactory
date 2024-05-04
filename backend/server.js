@@ -112,7 +112,7 @@ app.post('/login', async (req, res) => {
     const { Email, Password } = req.body;
     const user = await userModel.findOne({ Email });
     if (user && await bcrypt.compare(Password, user.Password)) {
-        req.session.userId = user._id;  // Set user session
+        req.session.userId = user._id;
         const accesstoken = jwt.sign({Email},process.env.ACCESSTOKEN_SECRET)
         res.cookie('token',accesstoken);
         res.json({ message: "Logged in successfully" , accesstoken:accesstoken });
