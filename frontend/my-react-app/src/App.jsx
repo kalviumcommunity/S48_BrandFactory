@@ -3,14 +3,14 @@ import './App.css';
 import Navbar from './components/Navbar';
 import UpdateBrand from './components/UpdateBrand';
 import axios from 'axios';
-import { useAuth } from './AuthContext'; // Import useAuth
+import { useAuth } from './AuthContext';
 import Cookies from 'js-cookie'
 
 function App() {
   const [data, setData] = useState([]);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [selectedBrandId, setSelectedBrandId] = useState(null);
-  const { isLoggedIn, logout } = useAuth(); // Use isLoggedIn and logout from context
+  const { isLoggedIn, logout } = useAuth();
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -18,7 +18,7 @@ function App() {
         .then(res => setData(res.data))
         .catch(err => console.error(err));
     } else {
-      setData([]); // Clear data if not logged in
+      setData([]);
     }
   }, [isLoggedIn]);
 
@@ -32,7 +32,7 @@ function App() {
     if (confirmDelete) {
       try {
         await axios.delete(`http://localhost:8000/deleteBrand/${id}`);
-        setData(data.filter(item => item._id !== id)); // Update state locally without re-fetching
+        setData(data.filter(item => item._id !== id));
       } catch (error) {
         console.error('Error deleting brand:', error);
       }

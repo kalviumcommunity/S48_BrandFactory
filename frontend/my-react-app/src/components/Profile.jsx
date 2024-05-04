@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import { useAuth } from '../AuthContext'; // Ensure AuthContext is correctly defined and exported in AuthContext.js
-import './Profile.css'; // Make sure this path is correct
+import { useAuth } from '../AuthContext';
+import './Profile.css';
 
 function Profile({ closeModal }) {
   const [formData, setFormData] = useState({ UserName: '', Email: '', Password: '' });
   const [isLogin, setIsLogin] = useState(true);
   const [errors, setErrors] = useState({});
-  const { login } = useAuth(); // Use login function from AuthContext
+  const { login } = useAuth(); 
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -20,17 +20,16 @@ function Profile({ closeModal }) {
 
     try {
       const response = await axios.post(url, formData);
-      alert(response.data.message); // Show success message
+      alert(response.data.message);
 
       if (isLogin) {
-        login(); // Trigger login action if logging in
-        Cookies.set('username', formData.Email); // Save username to cookies
-        Cookies.set('token', response.data.accesstoken); // Save username to cookies
+        login();
+        Cookies.set('username', formData.Email);
+        Cookies.set('token', response.data.accesstoken);
       } else {
-        // Optionally handle any actions needed right after registration
       }
 
-      closeModal(); // Close modal on success
+      closeModal();
     } catch (error) {
       console.error('Error:', error.response ? error.response.data : "Network Error");
       setErrors(error.response ? error.response.data : { global: "Network Error" });

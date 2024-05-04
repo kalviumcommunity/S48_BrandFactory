@@ -17,7 +17,7 @@ UserSchema.pre('save', async function(next) {
 const userValidationSchema = Joi.object({
   UserName: Joi.string().required(),
   Email: Joi.string().email().required(),
-  Password: Joi.string().min(6).required() // Ensure strong passwords
+  Password: Joi.string().min(6).required()
 });
 
 const userModel = mongoose.model("users", UserSchema);

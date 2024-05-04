@@ -12,10 +12,8 @@ const jwt = require('jsonwebtoken')
 const app = express();
 const port = 8000;
 
-// MongoDB URI from environment variables
 const uri = process.env.mongoURi;
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 app.use(session({
@@ -24,7 +22,6 @@ app.use(session({
   saveUninitialized: false
 }));
 
-// Database connection
 mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -34,10 +31,8 @@ mongoose.connect(uri, {
     console.error('MongoDB connection error:', err);
 });
 
-// Routes
 app.use('/', routes);
 
-// Brand Endpoints
 app.post('/addBrand', async (req, res) => {
     try {
       const validationResult = await factoryValidationSchema.validateAsync(req.body);
@@ -77,7 +72,6 @@ app.get('/getBrands', (req, res) => {
         .catch(err => res.json(err))
 });
 
-// User Endpoints
 app.post('/postUserData', async (req, res) => {
     try {
       const validationResult = await userValidationSchema.validateAsync(req.body);
@@ -133,7 +127,6 @@ app.get('/logout', function (req, res) {
   });
 });
 
-// Middleware to check if user is logged in
 function isAuthenticated(req, res, next) {
     if (req.session.userId) {
         return next();
@@ -141,7 +134,6 @@ function isAuthenticated(req, res, next) {
     res.status(401).json({ error: 'Unauthorized' });
 }
 
-// Start server
 if (require.main === module) {
     app.listen(port, () => {
         console.log(`🚀 server running on PORT: ${port}`);

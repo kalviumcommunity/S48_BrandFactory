@@ -8,7 +8,6 @@ function UpdateBrand({ closeModal, brandId }) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // Fetch the existing brand data based on brandId
     const fetchBrandData = async () => {
       try {
         const response = await axios.get(`http://localhost:8000/getBrand/${brandId}`);
@@ -27,7 +26,6 @@ function UpdateBrand({ closeModal, brandId }) {
   const handleUpdate = async () => {
     setLoading(true);
     try {
-      // Send the updated brand data to the backend
       await axios.put(`http://localhost:8000/updateBrand/${brandId}`, formData);
       alert('Brand updated successfully!');
       closeModal();
@@ -42,7 +40,6 @@ function UpdateBrand({ closeModal, brandId }) {
       <div className="modal" onClick={(e) => e.stopPropagation()}>
         <h2 className='log'>Update Brand</h2>
         <form>
-          {/* Render form fields with existing brand data */}
           <div className="form-group">
             <label htmlFor="BrandName">Brand Name:</label>
             <input type="text" id="BrandName" name="BrandName" value={formData.BrandName} onChange={handleChange} />
