@@ -47,34 +47,32 @@ h4 {
 
 /* App.css */
 
-/* Styles for the update and delete buttons */
 button {
   margin-top: 10px;
   padding: 8px 12px;
-  background-color: #393737; /* Blue color for buttons */
-  color: #fff; /* White text color */
+  background-color: #393737;
+  color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Smooth transition for button hover */
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #6a6a6a; /* Darker blue color on hover */
+  background-color: #6a6a6a;
 }
 
-/* Separate styling for the update button */
+
 .update-btn {
-  margin-right: 10px; /* Adjust margin-right as needed */
+  margin-right: 10px;
 }
 
-/* Separate styling for the delete button */
 .delete-btn {
-  background-color: #6e6e6e; /* Red color for delete button */
+  background-color: #6e6e6e
 }
 
 .delete-btn:hover {
-  background-color: #313131; /* Darker red color on hover */
+  background-color: #313131;
 }
 
 .logout{
