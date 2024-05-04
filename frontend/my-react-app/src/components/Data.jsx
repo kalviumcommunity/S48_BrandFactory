@@ -8,7 +8,7 @@ const Data = () => {
         Description: "Puma is a German multinational corporation that designs and manufactures athletic and casual footwear, apparel, and accessories.",
         History: "Puma was founded in 1948 by Rudolf Dassler after he split from his brother who founded Adidas. The company rapidly gained popularity for its innovative designs and high-performance sports gear.",
         Founders: ["Rudolf Dassler"],
-        MissionStatemen: "To be the Fastest Sports Brand in the world.",
+        MissionStatement: "To be the Fastest Sports Brand in the world.",
         SellingPoint: ["Innovative designs", "High-performance gear", "Celebrity endorsements"],
         QualityStandards: ["High-quality materials", "Stringent quality control processes"],
         WebLink: "https://www.puma.com"

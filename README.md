@@ -2,7 +2,7 @@
 # S48_BrandFactory
 This is your first repository
 
-=======
+
 Project : List of Top Clothing Brands
    - The project is based on describing the top clothing brands.
    - Provide detailed descriptions of each clothing brand, including its history, founders, mission statement, and unique selling points.
