@@ -45,11 +45,7 @@ h4 {
   margin-top: 5px;
 }
 
-<<<<<<< HEAD
-=======
-/* App.css */
 
->>>>>>> 8621631c8ea8251341be2d76bbf1edaf39dcdffc
 button {
   margin-top: 10px;
   padding: 8px 12px;
@@ -65,20 +61,13 @@ button:hover {
   background-color: #6a6a6a;
 }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 8621631c8ea8251341be2d76bbf1edaf39dcdffc
 .update-btn {
   margin-right: 10px;
 }
 
 .delete-btn {
-<<<<<<< HEAD
-  background-color: #6e6e6e;
-=======
   background-color: #6e6e6e
->>>>>>> 8621631c8ea8251341be2d76bbf1edaf39dcdffc
 }
 
 .delete-btn:hover {

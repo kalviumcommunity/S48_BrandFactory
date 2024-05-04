@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
-<<<<<<< HEAD
-import './Navbar.css'; 
-import Modal from './AddItem.jsx';
-=======
 import './Navbar.css';
 import Modal from './AddItem.jsx'; 
->>>>>>> 8621631c8ea8251341be2d76bbf1edaf39dcdffc
 import Profile from './Profile.jsx';
 function Navbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -36,11 +31,7 @@ function Navbar() {
           <img
             src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png"
             className="icon"
-<<<<<<< HEAD
-            onClick={toggleProfile} 
-=======
             onClick={toggleProfile}
->>>>>>> 8621631c8ea8251341be2d76bbf1edaf39dcdffc
           />
         </div>
       </div>
