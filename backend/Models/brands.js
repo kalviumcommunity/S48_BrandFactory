@@ -10,6 +10,7 @@ const FactorySchema = new mongoose.Schema({
     SellingPoint: Array,
     QualityStandards: Array,
     WebLink: String,
+    created_by: String
 });
 
 const factoryValidationSchema = Joi.object({
@@ -20,7 +21,8 @@ const factoryValidationSchema = Joi.object({
     MissionStatement: Joi.string().required(),
     SellingPoint: Joi.string().required(),
     QualityStandards: Joi.string().required(),
-    WebLink: Joi.string().required()
+    WebLink: Joi.string().required(),
+    created_by: Joi.string().required()
 });
 
 const factoryModel = mongoose.model("brands", FactorySchema);

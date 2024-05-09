@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './AddItem.css'; 
+import Cookies from 'js-cookie';
 
 function Profile({ closeModal }) {
   const [formData, setFormData] = useState({ BrandName: '', Description: '', History: '', Founders: [], MissionStatement: '', SellingPoint: [], QualityStandards: [], WebLink: '' });
@@ -9,9 +10,10 @@ function Profile({ closeModal }) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const created_by = Cookies.get('username')
   const handleAddBrand = async () => {
     try {
-      await axios.post('http://localhost:8000/addBrand', formData);
+      await axios.post('http://localhost:8000/addBrand', {...formData,created_by});
       alert('Brand added successfully!');
       closeModal();
 

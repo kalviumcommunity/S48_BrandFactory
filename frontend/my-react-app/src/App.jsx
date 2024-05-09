@@ -11,6 +11,24 @@ function App() {
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [selectedBrandId, setSelectedBrandId] = useState(null);
   const { isLoggedIn, logout } = useAuth();
+  const [users,setUsers] = useState([])
+
+  useEffect(()=>{
+    axios.get("http://localhost:8000/getUserData")
+    .then(
+      users=>{
+        setUsers(users.data)}
+    )
+    .catch(err=>
+      console.log(err)
+    )
+  },[])
+
+  const username=Cookies.get('username')
+  const [selectedUser , setSelectedUser] = useState(username)
+  const handleSelectChange=(e)=>{
+    setSelectedUser(e.target.value)
+  }
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -51,8 +69,16 @@ function App() {
         <>
           {isUpdateModalOpen && <UpdateBrand closeModal={handleCloseUpdateModal} brandId={selectedBrandId} />}
           <h1 className='welcome'>Welcome to BrandFactory</h1>
+          <div align="center">
+              <select  value={selectedUser} onChange={handleSelectChange}>
+              {users.map((user,i)=>(
+                <option key={i} value={user.Email}>{user.UserName}</option>
+              ))}
+            </select>
+          </div>
+
           <div>
-            {data.map((item) => (
+            {data.filter(brand=>brand.created_by==selectedUser).map((item) => (
               <div key={item._id} className="main">
                 <h2>{item.BrandName}</h2>
                 <h4>Description: {item.Description}</h4>
