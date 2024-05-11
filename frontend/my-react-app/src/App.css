@@ -89,3 +89,10 @@ button:hover {
   padding-top: 20vh;
   font-size: 25px;
 }
+
+select{
+  padding: 2px;
+  font-size: 17px;
+  margin-bottom: 40px;
+  background-color: rgb(220, 220, 220);
+}
